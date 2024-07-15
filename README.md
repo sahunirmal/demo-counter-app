@@ -51,7 +51,7 @@ save file and give permission to jenkins.sh
 run scripts
    ./jenkins.sh
 install docker also using scripts
-   vi docker.sh    and enter below commndsa
+   vi docker.sh    and enter below commands
 
    # Add Docker's official GPG key:
 sudo apt-get update
@@ -65,11 +65,21 @@ echo \
   $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt-get update
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
 
 save file , give execute permissinon 
    sudo chmod +x docker.sh
    /.docker.sh
+give permission to ubuntu user to run docker commands
+   sudo chmod 666 /var/run/docker.sock
+   or,
+   sudo usermod -aG docker ubuntu
+Now setting up sonarqube server using docker container. install docker in this vm using above docker.sh script and give permission to everyuser to run docker command.
+   sudo chmod 666 /var/run/docker.sock
+download sonar container 
+   docker run -d --name sonar -p 9090:9090 sonarqube:lts-community
 
+   
+   
    
 
