@@ -77,7 +77,7 @@ give permission to ubuntu user to run docker commands
 Now setting up sonarqube server using docker container. install docker in this vm using above docker.sh script and give permission to everyuser to run docker command.
    sudo chmod 666 /var/run/docker.sock
 download sonar container 
-   docker run -d --name sonar -p 9090:9090 sonarqube:lts-community
+   docker run -d --name sonar -p 9000:9000 sonarqube:lts-community
 
    
    
