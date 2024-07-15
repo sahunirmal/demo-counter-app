@@ -25,8 +25,8 @@ Prerequisites:
 For jenkins installation:
 
 INSTALLATIONS ...
-> create 3 instances ubuntu 22.04 for jenkins,sonarqube & nexus
-> initiate git in local and push code files to github
+create 3 instances ubuntu 22.04 for jenkins,sonarqube & nexus
+initiate git in local and push code files to github
    git init
    git config --global user.name sahunirmal
    git config --global user.email nirmalendusahu@gmail.com
