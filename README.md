@@ -35,7 +35,7 @@ initiate git in local and push code files to github
    git remote add origin https://github.com/sahunirmal/demo-counter-app.git
    git branch
    git push -u origin master
-Connect to ubuntu server
+1.Connect to 1st ubuntu server
    ssh -i c:\Users\nirma\Downloads\19sep.pem ubuntu@ec2-44-223-109-206.compute-1.amazonaws.com
    sudo apt-get update
 vi jenkins.sh  and enter  bellow scripts
@@ -50,7 +50,9 @@ save file and give permission to jenkins.sh
    sudo chmod +x jenkins.sh
 run scripts
    ./jenkins.sh
-install docker also using scripts
+   
+2.Setting sonar server also using scripts in 2nd server using docker container
+================================================================================
    vi docker.sh    and enter below commands
 
    # Add Docker's official GPG key:
@@ -74,10 +76,43 @@ give permission to ubuntu user to run docker commands
    sudo chmod 666 /var/run/docker.sock
    or,
    sudo usermod -aG docker ubuntu
-Now setting up sonarqube server using docker container. install docker in this vm using above docker.sh script and give permission to everyuser to run docker command.
+Now setting up a new sonarqube server using docker container. install docker in this vm using above docker.sh script and give permission to everyuser to run docker command.
    sudo chmod 666 /var/run/docker.sock
-download sonar container 
+download and run sonar container 
    docker run -d --name sonar -p 9000:9000 sonarqube:lts-community
+In case container stops or rebooting ec2 execute below commands
+    systemctl start docker
+    docker start sonar
+connect to sonar ip:9000 through browser. Make sure port 9000 is open in security group.    
+
+3. Setting up nexus server using docker container
+=========================================================
+install docker using above scripts docker.sh . and give permission to user to run docker commands
+    sudo chmod 666 /var/run/docker.sock
+run nexus container and open port 8081 in vm's sg.
+    docker run -d --name nexus3 -p 8081:8081 sonatype/nexus3
+Access ip-of-vm:8081, sign in to nexus3 . user-name admin . get password form below steps
+    docker exec -it nexus3 /bin/bash
+    cd sonatype-work/nexus3/
+    cat admin.password
+selct option "Enable anonymous access"
+
+**Now setting up jenkins server **
+===========================================
+install plugin > SonarQube Scanner , SonarQube Generic Coverage, Sonar Gerrit, Quality Gates, Sonar Quality Gates
+Goto manage jenkins> configure system> add tool maven as "mymaven"
+Add sonar server 
+
+
+create pipeline job 
+
+
+    
+    
+    
+
+
+   
 
    
    

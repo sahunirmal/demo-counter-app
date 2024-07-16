@@ -61,6 +61,7 @@ pipeline{
                      protocol: 'http', 
                      repository: nexusRepo,
                      version: "${readPomVersion.version}"
+<<<<<<< HEAD
                 }
             }
         }
@@ -71,6 +72,8 @@ pipeline{
                     sh 'docker image tag $JOB_NAME:v1.$BUILD_ID nirmalendusahu/$JOB_NAME:v1.$BUILD_ID'
                     sh 'docker image tag $JOB_NAME:v1.$BUILD_ID nirmalendusahu/$JOB_NAME:latest'
 
+=======
+>>>>>>> 15b7cc30d113cba9a426ee7c891db2cdd4a552bb
                 }
             }
         }
