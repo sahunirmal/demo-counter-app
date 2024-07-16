@@ -44,6 +44,8 @@ pipeline{
         stage('Upload jar file to nexus'){
             steps{
                 script{
+                    def readPomVersion = readMavenPom file: 'pom.xml'
+                    def nexusRepo = readPomVersion.version.endsWith("SNAPSHOT") ? "demoapp-snapshot" : "demoapp-release"
                     nexusArtifactUploader artifacts:
                      [
                         [
@@ -57,8 +59,18 @@ pipeline{
                      nexusUrl: '44.192.128.218:8081', 
                      nexusVersion: 'nexus3', 
                      protocol: 'http', 
-                     repository: 'demoapp-release',
-                     version: '1.0.0'
+                     repository: nexusRepo,
+                     version: "${readPomVersion.version}"
+                }
+            }
+        }
+        stage('Docker Image Build'){
+            steps{
+                script{
+                    sh 'docker image build -t $JOB_NAME:v1.$BUILD_ID .'
+                    sh 'docker image tag $JOB_NAME:v1.$BUILD_ID nirmalendusahu/$JOB_NAME:v1.$BUILD_ID'
+                    sh 'docker image tag $JOB_NAME:v1.$BUILD_ID nirmalendusahu/$JOB_NAME:latest'
+
                 }
             }
         }
