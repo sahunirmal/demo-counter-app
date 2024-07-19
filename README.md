@@ -35,7 +35,9 @@ initiate git in local and push code files to github
    git remote add origin https://github.com/sahunirmal/demo-counter-app.git
    git branch
    git push -u origin master
-1.Connect to 1st ubuntu server
+   
+1.Connect to 1st ubuntu server and install jenkins
+==================================================
    ssh -i c:\Users\nirma\Downloads\19sep.pem ubuntu@ec2-44-223-109-206.compute-1.amazonaws.com
    sudo apt-get update
 vi jenkins.sh  and enter  bellow scripts
@@ -51,7 +53,7 @@ save file and give permission to jenkins.sh
 run scripts
    ./jenkins.sh
    
-2.Setting sonar server also using scripts in 2nd server using docker container
+2.Setting up sonar  in 2nd server using docker container
 ================================================================================
    vi docker.sh    and enter below commands
 
@@ -76,8 +78,6 @@ give permission to ubuntu user to run docker commands
    sudo chmod 666 /var/run/docker.sock
    or,
    sudo usermod -aG docker ubuntu
-Now setting up a new sonarqube server using docker container. install docker in this vm using above docker.sh script and give permission to everyuser to run docker command.
-   sudo chmod 666 /var/run/docker.sock
 download and run sonar container 
    docker run -d --name sonar -p 9000:9000 sonarqube:lts-community
 In case container stops or rebooting ec2 execute below commands
@@ -95,7 +95,7 @@ Access ip-of-vm:8081, sign in to nexus3 . user-name admin . get password form be
     docker exec -it nexus3 /bin/bash
     cd sonatype-work/nexus3/
     cat admin.password
-selct option "Enable anonymous access"
+Paste passwd selct option "Enable anonymous access"
 
 **Now setting up jenkins server **
 ===========================================
@@ -103,8 +103,19 @@ install plugin > SonarQube Scanner , SonarQube Generic Coverage, Sonar Gerrit, Q
 Goto manage jenkins> configure system> add tool maven as "mymaven"
 Add sonar server 
 
+In Jenkins, go to Manage Jenkins -> Manage Credentials -> (global) -> Add Credentials.
+Add your GitHub credentials (username and personal access token)
+create pipeline job -> configuration > pipeline > definition > pipepline script from SCM > give git ,repo url and credentials and script path "jenkinsfile" ,branch master or main > save
 
-create pipeline job 
+Configure Sonal plugins
+manage jenkins > configure System > SonarQube Servers >installations > give name >sever url > create Server authentication token(kind= Secret text,get secret from sonarqube server > adminsitration >security> users>Token of Adminstrator>generaate Token > copy and paste in secret section in jenkins >give ID and Desription as sonar-api > ADD ) > select "sonar-api" token >Apply and Save.
+
+"SonarQube Analysis stage"
+Generate script for using pipeline syntax generator > select withsonarQubeEnv plugin in step section > select "sonar-api" key that just created .
+
+
+
+
 
 
     
