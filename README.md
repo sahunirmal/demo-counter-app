@@ -3,7 +3,7 @@ Prerequisites:
 2. Sonarqube
 3. Maven Installed
 
-------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------
 1. Application Overview
 2. Git use cases
 3. Jenkins Job Creation 
@@ -110,8 +110,15 @@ create pipeline job -> configuration > pipeline > definition > pipepline script 
 Configure Sonal plugins
 manage jenkins > configure System > SonarQube Servers >installations > give name >sever url > create Server authentication token(kind= Secret text,get secret from sonarqube server > adminsitration >security> users>Token of Adminstrator>generaate Token > copy and paste in secret section in jenkins >give ID and Desription as sonar-api > ADD ) > select "sonar-api" token >Apply and Save.
 
-"SonarQube Analysis stage"
-Generate script for using pipeline syntax generator > select withsonarQubeEnv plugin in step section > select "sonar-api" key that just created .
+SonarQube Analysis stage-
+Generate script for using pipeline syntax generator > select withSonarQubeEnv plugin in step section > select "sonar-api" key that just created .
+
+"Quality Gate status stage-
+Generate script for using pipeline syntax generator > select waitForQualityGate  plugin in step section > serever authentication token "sonar-api" 
+While running this pipeline stage we will get into a loop "status in Pending" . To avoid the "status in Pending" loop and establish a two-way handshake between Jenkins and SonarQube, you need to ensure that Jenkins can wait for SonarQube's quality gate result. This requires proper configuration of the SonarQube WEBHOOK to notify Jenkins of the analysis completion and quality gate status.
+Goto sonarqube server> Administration > Configuration > Webhhoks > create > give name and URL as http://jenkinsserverip:8080/sonarqube-webhook/  .
+
+
 
 
 
