@@ -1,9 +1,9 @@
-Prerequisites:
+## Prerequisites:
 1. Nexus 
 2. Sonarqube
 3. Maven Installed
 
-------------------------------------------------------------
+## Scenario Covered
 1. Application Overview
 2. Git use cases
 3. Jenkins Job Creation 
@@ -50,7 +50,7 @@ vi jenkins.sh  and enter  bellow scripts
    sudo apt-get install jenkins -y
 ```
 save file and give permission to jenkins.sh
-   `sudo chmod +x jenkins.sh`
+  ```sudo chmod +x jenkins.sh```
 run scripts
    `./jenkins.sh`
    
