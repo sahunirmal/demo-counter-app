@@ -71,8 +71,9 @@ sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
 ```
 save file , give execute permissinon and run script
-   ```sudo chmod +x docker.sh
-   /.docker.sh```
+```sudo chmod +x docker.sh
+   /.docker.sh
+```
 give permission to ubuntu user to run docker commands
    sudo chmod 666 /var/run/docker.sock
    or,
