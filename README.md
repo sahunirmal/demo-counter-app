@@ -38,8 +38,11 @@ initiate git in local and push code files to github
    ```
 ## 1.Connect to 1st ubuntu server and install jenkins
 
-  ```ssh -i c:\Users\nirma\Downloads\19sep.pem ubuntu@public_ip```
-  ``` sudo apt-get update```
+  ```
+ssh -i c:\Users\nirma\Downloads\19sep.pem ubuntu@public_ip
+  ```
+  ``` sudo apt-get update
+  ```
 vi jenkins.sh  and enter  bellow scripts
   ``` sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
    https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
