@@ -27,7 +27,8 @@ For jenkins installation:
 INSTALLATIONS ...
 create 3 instances ubuntu 22.04 for jenkins,sonarqube & nexus
 initiate git in local and push code files to github
- ```  git init
+ ```
+   git init
    git config --global user.name sahunirmal
    git config --global user.email nirmalendusahu@gmail.com
    git add .
@@ -41,10 +42,12 @@ initiate git in local and push code files to github
   ```
 ssh -i c:\Users\nirma\Downloads\19sep.pem ubuntu@public_ip
   ```
-  ``` sudo apt-get update
+  ```
+ sudo apt-get update
   ```
 vi jenkins.sh  and enter  bellow scripts
-  ``` sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
+  ```
+sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
    https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
    echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]" \
    https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
@@ -53,7 +56,9 @@ vi jenkins.sh  and enter  bellow scripts
    sudo apt-get install jenkins -y
 ```
 save file and give permission to jenkins.sh
-  ```sudo chmod +x jenkins.sh```
+  ```
+  sudo chmod +x jenkins.sh
+```
 run scripts
    `./jenkins.sh`
    
@@ -75,7 +80,8 @@ sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
 ```
 save file , give execute permissinon and run script
-```sudo chmod +x docker.sh
+```
+sudo chmod +x docker.sh
    /.docker.sh
 ```
 give permission to ubuntu user to run docker commands
@@ -86,7 +92,8 @@ download and run sonar container
   ```docker run -d --name sonar -p 9000:9000 sonarqube:lts-community
   ```
 In case container stops or rebooting ec2 execute below commands
-```    systemctl start docker
+```
+ systemctl start docker
     docker start sonar
 ```
 connect to sonar ip:9000 through browser. Make sure port 9000 is open in security group.    
@@ -98,7 +105,8 @@ install docker using above scripts docker.sh . and give permission to user to ru
 run nexus container and open port 8081 in vm's sg.
     `docker run -d --name nexus3 -p 8081:8081 sonatype/nexus3`
 Access ip-of-vm:8081, sign in to nexus3 . user-name admin . get password form below steps
-    ```docker exec -it nexus3 /bin/bash
+    ```
+    docker exec -it nexus3 /bin/bash
     cd sonatype-work/nexus3/
     cat admin.password
     ```
