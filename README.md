@@ -54,9 +54,8 @@ run scripts
    ./jenkins.sh
    
 ## 2.Setting up sonar  in 2nd server using docker container
-================================================================================
    vi docker.sh    and enter below commands
-
+```
    # Add Docker's official GPG key:
 sudo apt-get update
 sudo apt-get install ca-certificates curl
@@ -70,10 +69,10 @@ echo \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
-
-save file , give execute permissinon 
-   sudo chmod +x docker.sh
-   /.docker.sh
+```
+save file , give execute permissinon and run script
+   ```sudo chmod +x docker.sh
+   /.docker.sh```
 give permission to ubuntu user to run docker commands
    sudo chmod 666 /var/run/docker.sock
    or,
@@ -81,12 +80,12 @@ give permission to ubuntu user to run docker commands
 download and run sonar container 
    docker run -d --name sonar -p 9000:9000 sonarqube:lts-community
 In case container stops or rebooting ec2 execute below commands
-`    systemctl start docker
-    docker start sonar`
+```    systemctl start docker
+    docker start sonar```
 connect to sonar ip:9000 through browser. Make sure port 9000 is open in security group.    
 
-3. Setting up nexus server using docker container
-=========================================================
+##3. Setting up nexus server using docker container
+
 install docker using above scripts docker.sh . and give permission to user to run docker commands
     `sudo chmod 666 /var/run/docker.sock`
 run nexus container and open port 8081 in vm's sg.
