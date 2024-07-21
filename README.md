@@ -82,7 +82,8 @@ download and run sonar container
    docker run -d --name sonar -p 9000:9000 sonarqube:lts-community
 In case container stops or rebooting ec2 execute below commands
 ```    systemctl start docker
-    docker start sonar```
+    docker start sonar
+```
 connect to sonar ip:9000 through browser. Make sure port 9000 is open in security group.    
 
 ##3. Setting up nexus server using docker container
