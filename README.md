@@ -27,7 +27,7 @@ For jenkins installation:
 INSTALLATIONS ...
 create 3 instances ubuntu 22.04 for jenkins,sonarqube & nexus
 initiate git in local and push code files to github
-   git init
+ ```  git init
    git config --global user.name sahunirmal
    git config --global user.email nirmalendusahu@gmail.com
    git add .
@@ -35,23 +35,24 @@ initiate git in local and push code files to github
    git remote add origin https://github.com/sahunirmal/demo-counter-app.git
    git branch
    git push -u origin master
-   
+   ```
 ## 1.Connect to 1st ubuntu server and install jenkins
-==================================================
-   ssh -i c:\Users\nirma\Downloads\19sep.pem ubuntu@ec2-44-223-109-206.compute-1.amazonaws.com
-   sudo apt-get update
+
+  `ssh -i c:\Users\nirma\Downloads\19sep.pem ubuntu@public_ip`
+  ` sudo apt-get update`
 vi jenkins.sh  and enter  bellow scripts
-   sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
+  ``` sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
    https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
    echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]" \
    https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
    /etc/apt/sources.list.d/jenkins.list > /dev/null
    sudo apt-get update
    sudo apt-get install jenkins -y
+```
 save file and give permission to jenkins.sh
-   sudo chmod +x jenkins.sh
+   `sudo chmod +x jenkins.sh`
 run scripts
-   ./jenkins.sh
+   `./jenkins.sh`
    
 ## 2.Setting up sonar  in 2nd server using docker container
    vi docker.sh    and enter below commands
@@ -75,18 +76,19 @@ save file , give execute permissinon and run script
    /.docker.sh
 ```
 give permission to ubuntu user to run docker commands
-   sudo chmod 666 /var/run/docker.sock
+   `sudo chmod 666 /var/run/docker.sock`
    or,
-   sudo usermod -aG docker ubuntu
+   `sudo usermod -aG docker ubuntu`
 download and run sonar container 
-   docker run -d --name sonar -p 9000:9000 sonarqube:lts-community
+  ```docker run -d --name sonar -p 9000:9000 sonarqube:lts-community
+  ```
 In case container stops or rebooting ec2 execute below commands
 ```    systemctl start docker
     docker start sonar
 ```
 connect to sonar ip:9000 through browser. Make sure port 9000 is open in security group.    
 
-##3. Setting up nexus server using docker container
+## 3. Setting up nexus server using docker container
 
 install docker using above scripts docker.sh . and give permission to user to run docker commands
     `sudo chmod 666 /var/run/docker.sock`
@@ -100,8 +102,8 @@ Access ip-of-vm:8081, sign in to nexus3 . user-name admin . get password form be
 Paste passwd selct option "Enable anonymous access"
 link to install nexus on ubuntu:  https://www.howtoforge.com/how-to-install-nexus-repository-manager-on-ubuntu-22-04/
 
-##Setting up jenkins server
-===========================================
+## Setting up jenkins server
+
 install plugin > SonarQube Scanner , SonarQube Generic Coverage, Sonar Gerrit, Quality Gates, Sonar Quality Gates
 Goto manage jenkins> configure system> add tool maven as "mymaven"
 Add sonar server 
