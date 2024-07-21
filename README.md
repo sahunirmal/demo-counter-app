@@ -96,8 +96,9 @@ Access ip-of-vm:8081, sign in to nexus3 . user-name admin . get password form be
     cd sonatype-work/nexus3/
     cat admin.password
 Paste passwd selct option "Enable anonymous access"
+link to install nexus on ubuntu:  https://www.howtoforge.com/how-to-install-nexus-repository-manager-on-ubuntu-22-04/
 
-**Now setting up jenkins server **
+Setting up jenkins server
 ===========================================
 install plugin > SonarQube Scanner , SonarQube Generic Coverage, Sonar Gerrit, Quality Gates, Sonar Quality Gates
 Goto manage jenkins> configure system> add tool maven as "mymaven"
