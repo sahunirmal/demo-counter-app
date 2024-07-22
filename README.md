@@ -106,7 +106,9 @@ In case container stops or rebooting ec2 execute below commands
  systemctl start docker
  docker start sonar
 ```
-connect to sonar ip:9000 through browser. Make sure port 9000 is open in security group.    
+connect to sonar ip:9000 through browser. Make sure port 9000 is open in security group.   
+
+To Install Nexus Repository Manager directly on Ubuntu 22.04 Vm visit [https://www.howtoforge.com/how-to-install-nexus-repository-manager-on-ubuntu-22-04/](url)
 
 ## 3. Setting up nexus server using docker container
 
