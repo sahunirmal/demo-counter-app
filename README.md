@@ -125,7 +125,7 @@ Access ip-of-vm:8081, sign in to nexus3 . user-name admin . get password form be
     cd sonatype-work/nexus3/
     cat admin.password
    ```
-Paste passwd selct option "Enable anonymous access"
+Paste passwd select option "Enable anonymous access"
 
 To Install Nexus Repository Manager directly on Ubuntu 22.04 VM, visit:  [https://www.howtoforge.com/how-to-install-nexus-repository-manager-on-ubuntu-22-04/](url)
 
