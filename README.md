@@ -48,6 +48,10 @@ ssh -i c:\Users\nirma\Downloads\19sep.pem ubuntu@public_ip
   ```
  sudo apt-get update
   ```
+Install java 
+```
+sudo apt install openjdk-17-jdk
+```
 vi jenkins.sh  and enter  bellow scripts
   ```
 sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
@@ -57,6 +61,8 @@ sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
    /etc/apt/sources.list.d/jenkins.list > /dev/null
    sudo apt-get update
    sudo apt-get install jenkins -y
+   sudo systemctl enable jenkins
+   sudo systemctl start jenkins
 ```
 save file and give permission to jenkins.sh
   ```
