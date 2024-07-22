@@ -123,22 +123,22 @@ In Jenkins, go to Manage Jenkins -> Manage Credentials -> (global) -> Add Creden
 Add your GitHub credentials (username and personal access token)
 create pipeline job -> configuration > pipeline > definition > pipepline script from SCM > give git ,repo url and credentials and script path "jenkinsfile" ,branch master or main > save
 
-Configure Sonal plugins
+### Configure Sonal plugins
 manage jenkins > configure System > SonarQube Servers >installations > give name >sever url > create Server authentication token(kind= Secret text,get secret from sonarqube server > adminsitration >security> users>Token of Adminstrator>generaate Token > copy and paste in secret section in jenkins >give ID and Desription as sonar-api > ADD ) > select "sonar-api" token >Apply and Save.
 
-SonarQube Analysis stage-
+### SonarQube Analysis stage-
 Generate script for using pipeline syntax generator > select withSonarQubeEnv plugin in step section > select "sonar-api" key that just created .
 
-"Quality Gate status stage-
+### Quality Gate status stage-
 Generate script for using pipeline syntax generator > select waitForQualityGate  plugin in step section > serever authentication token "sonar-api" 
 While running this pipeline stage we will get into a loop "status in Pending" . To avoid the "status in Pending" loop and establish a two-way handshake between Jenkins and SonarQube, you need to ensure that Jenkins can wait for SonarQube's quality gate result. This requires proper configuration of the SonarQube WEBHOOK to notify Jenkins of the analysis completion and quality gate status.
 Goto sonarqube server> Administration > Configuration > Webhhoks > create > give name and URL as http://jenkinsserverip:8080/sonarqube-webhook/  
 
-Sign in to nexus repo > go to setting > Repository > create  2 repo Release and SNAPSHOT repo of type maven2 (hosted).
+### Sign in to nexus repo > go to setting > Repository > create  2 repo Release and SNAPSHOT repo of type maven2 (hosted).
 To connect this nexus repo to jenkins to upaload Artifect after building > download  Nexus Artifect Uploader PLUGIN
 Generate pipeline syntax > select from steps dropdown >nexusArtifactUploader: Nexus Artifact Uploader >NEXUS3 > add credentials (username and password of nexus,)ID and Description) > Groupid, version, nexusrepository name that created just before >Add artifact id ,type jar,file(target/Uber.jar ) from pom.xml file. >generate code and put in jenkins pipeline code. Run pipeline > Uber.jar file will be pushed to Nexux repository.
 
-To fetch/extrat version from pom.xml dynamically 
+### To fetch/extrat version from pom.xml dynamically 
 Download Pipeline Utility Steps plugin > define a variable which will read pom.xml i.e 
 def readPomVersion = readMavenPom file: 'pom.xml'    call it in script
 version: "${readPomVersion.version}"
@@ -146,7 +146,7 @@ Write a condition which will push packaged file to nexus released/SNAPSHOT repo
 def nexusRepo = readPomVersion.version.endswith("SNAPSHOT") ? "demoapp-snapshot" : "demoapp-release"      call it in script
 repository: nexusRepo
 
-Next create multistage docker file
+### Next create multistage docker file
 docker should be installed in jenkis server to run docker commands
 add docker hub credentials using Withcredentials: Bind credentials to variables > Bindings "secret text"  > give dockerhub password > type username and password >generate syntax and paste in pipeline
 
