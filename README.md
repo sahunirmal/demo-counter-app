@@ -89,21 +89,26 @@ give permission to ubuntu user to run docker commands
    or,
    `sudo usermod -aG docker ubuntu`
 download and run sonar container 
-  ```docker run -d --name sonar -p 9000:9000 sonarqube:lts-community
+  ```
+docker run -d --name sonar -p 9000:9000 sonarqube:lts-community
   ```
 In case container stops or rebooting ec2 execute below commands
 ```
  systemctl start docker
-    docker start sonar
+ docker start sonar
 ```
 connect to sonar ip:9000 through browser. Make sure port 9000 is open in security group.    
 
 ## 3. Setting up nexus server using docker container
 
 install docker using above scripts docker.sh . and give permission to user to run docker commands
-    `sudo chmod 666 /var/run/docker.sock`
+    ```
+    sudo chmod 666 /var/run/docker.sock
+    ```
 run nexus container and open port 8081 in vm's sg.
-    `docker run -d --name nexus3 -p 8081:8081 sonatype/nexus3`
+    ```
+    docker run -d --name nexus3 -p 8081:8081 sonatype/nexus3
+    ```
 Access ip-of-vm:8081, sign in to nexus3 . user-name admin . get password form below steps
     ```
     docker exec -it nexus3 /bin/bash
