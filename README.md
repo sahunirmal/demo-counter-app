@@ -119,11 +119,12 @@ run nexus container and open port 8081 in vm's sg.
     docker run -d --name nexus3 -p 8081:8081 sonatype/nexus3
     ```
 Access ip-of-vm:8081, sign in to nexus3 . user-name admin . get password form below steps
-    ```
+   
+   ```
     docker exec -it nexus3 /bin/bash
     cd sonatype-work/nexus3/
     cat admin.password
-    ```
+   ```
 Paste passwd selct option "Enable anonymous access"
 
 To Install Nexus Repository Manager directly on Ubuntu 22.04 VM, visit:  [https://www.howtoforge.com/how-to-install-nexus-repository-manager-on-ubuntu-22-04/](url)
