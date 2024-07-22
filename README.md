@@ -108,8 +108,6 @@ In case container stops or rebooting ec2 execute below commands
 ```
 connect to sonar ip:9000 through browser. Make sure port 9000 is open in security group.   
 
-To Install Nexus Repository Manager directly on Ubuntu 22.04 Vm visit [https://www.howtoforge.com/how-to-install-nexus-repository-manager-on-ubuntu-22-04/](url)
-
 ## 3. Setting up nexus server using docker container
 
 install docker using above scripts docker.sh . and give permission to user to run docker commands
@@ -127,7 +125,8 @@ Access ip-of-vm:8081, sign in to nexus3 . user-name admin . get password form be
     cat admin.password
     ```
 Paste passwd selct option "Enable anonymous access"
-link to install nexus on ubuntu:  https://www.howtoforge.com/how-to-install-nexus-repository-manager-on-ubuntu-22-04/
+
+To Install Nexus Repository Manager directly on Ubuntu 22.04 VM, visit:  [https://www.howtoforge.com/how-to-install-nexus-repository-manager-on-ubuntu-22-04/](url)
 
 ## Setting up jenkins server
 
