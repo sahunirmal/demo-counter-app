@@ -140,7 +140,7 @@ Add your GitHub credentials (username and personal access token)
 create pipeline job -> configuration > pipeline > definition > pipepline script from SCM > give git ,repo url and credentials and script path "jenkinsfile" ,branch master or main > save
 
 ### Configure Sonal plugins
-manage jenkins > configure System > SonarQube Servers >installations > give name >sever url > create Server authentication token(kind= Secret text,get secret from sonarqube server > adminsitration >security> users>Token of Adminstrator>generaate Token > copy and paste in secret section in jenkins >give ID and Desription as sonar-api > ADD ) > select "sonar-api" token >Apply and Save.
+manage jenkins > configure System > SonarQube Servers >installations > give name >server url > create Server authentication token(kind= Secret text,get secret from sonarqube server > adminsitration >security> users>Token of Adminstrator>generaate Token > copy and paste in secret section in jenkins >give ID and Desription as sonar-api > ADD ) > select "sonar-api" token >Apply and Save.
 
 ### SonarQube Analysis stage-
 Generate script for using pipeline syntax generator > select withSonarQubeEnv plugin in step section > select "sonar-api" key that just created .
