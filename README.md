@@ -3,7 +3,7 @@
 2. Sonarqube
 3. Maven Installed
 
-## Scenario Covered
+# Scenario Covered
 1. Application Overview
 2. Git use cases
 3. Jenkins Job Creation 
@@ -37,6 +37,9 @@ initiate git in local and push code files to github
    git branch
    git push -u origin master
    ```
+For connecting to private repo through https: create Personal Access Token in github's setting and paste in cli after  adding remote origin in password section.
+or, For SSH connction execute `ssh-keygen` in cli . Go to github's setting SSH and GPG key section. Create new and paste the generated key.
+
 ## 1.Connect to 1st ubuntu server and install jenkins
 
   ```
