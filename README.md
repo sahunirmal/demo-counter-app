@@ -166,7 +166,7 @@ repository: nexusRepo
 docker should be installed in jenkis server to run docker commands
 add docker hub credentials using Withcredentials: Bind credentials to variables > Bindings "secret text"  > give dockerhub password > type username and password >generate syntax and paste in pipeline
 
-Project link: https://www.youtube.com/watch?v=Yk7k3yEguQA
+Project link: []([url](https://www.youtube.com/watch?v=Yk7k3yEguQA))
 
 
 
