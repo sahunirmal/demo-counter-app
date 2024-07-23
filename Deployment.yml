@@ -16,9 +16,8 @@ spec:
     spec:
       containers:
       - name: myspringbootapp
-        image: my-app-image:latest
+        image: nirmalendusahu/mydemoapplication:latest
+        imagePullPolicy: Always
         ports:
-        - containerPort: 80
-        env:
-        - name: ENV_VAR_NAME
-          value: "example-value"
+        - containerPort: 9099
+       
