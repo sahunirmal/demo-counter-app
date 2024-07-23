@@ -86,6 +86,7 @@ pipeline{
                 }
             }
         }
+        stage('eks connect'){
     }             
 }  
             
