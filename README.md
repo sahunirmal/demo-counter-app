@@ -163,7 +163,7 @@ def nexusRepo = readPomVersion.version.endswith("SNAPSHOT") ? "demoapp-snapshot"
 repository: nexusRepo
 
 ### Next create multistage docker file
-docker should be installed in jenkis server to run docker commands
+docker should be installed in jenkins server to run docker commands
 add docker hub credentials using Withcredentials: Bind credentials to variables > Bindings "secret text"  > give dockerhub password > type username and password >generate syntax and paste in pipeline
 
 Project link:Part1 [https://www.youtube.com/watch?v=Yk7k3yEguQA](url) 
