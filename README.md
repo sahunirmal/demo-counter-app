@@ -166,16 +166,17 @@ repository: nexusRepo
 docker should be installed in jenkins server to run docker commands
 add docker hub credentials using Withcredentials: Bind credentials to variables > Bindings "secret text"  > give dockerhub password > type username and password >generate syntax and paste in pipeline
 
-Project link:Part1 [https://www.youtube.com/watch?v=Yk7k3yEguQA](url) 
-             PArt2 [https://www.youtube.com/watch?v=MpRd_nJEx_8&t=1173s](url)
-Install aws cli [https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html](url)             
+Project link:
+ * Part1 [https://www.youtube.com/watch?v=Yk7k3yEguQA](url) 
+ * PArt2 [https://www.youtube.com/watch?v=MpRd_nJEx_8&t=1173s](url)
+Install AWS CLI [https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html](url)            
 You have terraform module to create EKS cluster. Execute
 ```
 teraform init
 terraform plan --var-file=./config/terraform.tfvars
 terraform apply --var-file=./config/terraform.tfvars --auto-approve
 ```
-
+ 
 
 
 
