@@ -168,8 +168,8 @@ add docker hub credentials using Withcredentials: Bind credentials to variables 
 
 Project link:
  * Part1 [https://www.youtube.com/watch?v=Yk7k3yEguQA](url) 
- * PArt2 [https://www.youtube.com/watch?v=MpRd_nJEx_8&t=1173s](url)
-Install AWS CLI [https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html](url)            
+ * PArt2 [https://www.youtube.com/watch?v=MpRd_nJEx_8&t=1173s](url) <br>
+Install AWS CLI [https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html](url)       
 You have terraform module to create EKS cluster. Execute
 ```
 teraform init
