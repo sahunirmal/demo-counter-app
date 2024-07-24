@@ -169,13 +169,16 @@ add docker hub credentials using Withcredentials: Bind credentials to variables 
 Project link:
  * Part1 [https://www.youtube.com/watch?v=Yk7k3yEguQA](url) 
  * PArt2 [https://www.youtube.com/watch?v=MpRd_nJEx_8&t=1173s](url) <br>
-Install AWS CLI [https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html](url)       
+Install AWS CLI [https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html](url) <br>
 You have terraform module to create EKS cluster. Execute
 ```
 teraform init
 terraform plan --var-file=./config/terraform.tfvars
 terraform apply --var-file=./config/terraform.tfvars --auto-approve
 ```
+### Setup to connect to eks cluster form Jenkins server
+- Goto jenkins dashboard > manage jenkins > credentials > System > Add credentials > kind (Secret text) > add  Access_key_id in secret section > ID and Descrption as  aws_access_key_id . <br>
+- Similarly create credentials for aws_secret_access_key . These to key will be apssed as Environmental variable in jenkins pipeline to connect to EKS cluster.
  
 
 
